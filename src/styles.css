@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "CircularSpotifyNormal";
+    src: url("../public/CircularStd-Black.otf");
+}
+
+@font-face {
+    font-family: "CircularSpotifyBold";
+    src: url("../public/CircularStd-Bold.otf");
+}
+
+@font-face {
+    font-family: "CircularSpotifyBook";
+    src: url("../public/CircularStd-Book.otf");
+}
+
+@font-face {
+    font-family: "CircularSpotifyLight";
+    src: url("../public/CircularStd-Light.otf");
+}
+
+@font-face {
+    font-family: "CircularSpotifyMedium";
+    src: url("../public/CircularStd-Medium.otf");
+}

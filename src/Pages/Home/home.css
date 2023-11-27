@@ -1,0 +1,194 @@
+.home {
+    background-color: #121212;
+    color: #eeeeee;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-section {
+    margin-top: 20px;
+    display: flex;
+}
+
+.website-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: CircularSpotifyBold, sans-serif;
+    font-size: 2.6em;
+    margin: 50px auto 5px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    font-family: CircularSpotifyBold, Circular, sans-serif;
+    text-align: left;
+    margin: 5px auto 1px;
+    justify-content: center;
+    max-width: 575px;
+}
+
+.website-description {
+    font-family: CircularSpotifyLight, sans-serif;
+    margin-bottom: 0;
+}
+
+.profile-pic {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-section {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+
+.dropzone {
+    border: 5px dashed #eeeeee;
+    border-radius: 15px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: "CircularSpotifyMedium", Circular, sans-serif;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 210px;
+    width: 650px;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.dropzone:hover{
+    border: 5px dashed #65d46e;
+}
+
+.tooltipSection {
+    font-size: 1.4em;
+    font-family: "CircularSpotifyLight", Circular, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tooltipContainer {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.tooltipText {
+    visibility: hidden;
+    background-color: #555;
+    color: #eeeeee;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltipContainer:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hoverEnlarge:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.privacyBannerContainer {
+    animation: 1s slideIn ease-out;
+    position: fixed;
+    width: 100%;
+    background-color: #eeeeee;
+    color: #121212;
+    height: 700px;
+    bottom: -450px;
+}
+
+.privacyBannerContainer h3 {
+    font-family: CircularSpotifyBold, Circular, sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 20px 20px 0 40px;
+
+}
+
+.privacyBannerTextContent {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px 19px 20px;
+    font-family: CircularSpotifyBook, Circular, sans-serif;
+}
+
+.privacyBannerTextContentChild {
+    flex-basis: 48%;
+    text-align: justify;
+}
+
+.privacyBannerTextButton {
+    font-family: "CircularSpotifyBold", Circular, sans-serif;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.privacyBannerTextButton:first-of-type{
+    margin-left: 40px;
+}
+
+.privacyBannerTextButton:hover {
+    background-color: #868686;
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
