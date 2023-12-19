@@ -1,5 +1,7 @@
 import {useDropzone} from "react-dropzone";
-import React from "react";
+import React, { useState } from "react";
+import JSZip from "jszip";
+import  { useNavigate } from 'react-router-dom';
 
 
 import './home.css';
@@ -12,6 +14,9 @@ import SpotifySVG from '../../assets/spotify.svg';
 
 
 const Home = () => {
+    // eslint-disable-next-line no-unused-vars
+    const [uncompressedFiles, setUncompressedFiles] = useState([]);
+    const navigate = useNavigate();
 
     const onDrop = (acceptedFiles) => {
         const invalidFiles = acceptedFiles.filter(file => !file.type.includes('json') && !file.type.includes('zip'));
@@ -20,9 +25,31 @@ const Home = () => {
         if (invalidFiles.length > 0) {
             window.alert('Error: Only JSON and ZIP files are valid');
         } else {
-            console.log("Accepted Files:", acceptedFiles);
-            window.location.assign('/success');
-            console.log("Success page loaded");
+            let newFiles = [...acceptedFiles];
+            acceptedFiles.forEach((file, index) => {
+                if (file.type === 'application/zip') {
+                    const reader = new FileReader();
+                    reader.onload = function() {
+                        const zip = new JSZip();
+                        zip.loadAsync(reader.result).then((zipFiles) => {
+                            const filePromises = [];
+                            zipFiles.forEach((relativePath, zipEntry) => {
+                                const promise = zipEntry.async('blob').then((fileData) => {
+                                    return new File([fileData], relativePath);
+                                });
+                                filePromises.push(promise);
+                            });
+                            Promise.all(filePromises).then((uncompressedFiles) => {
+                                newFiles.splice(index, 1, ...uncompressedFiles);
+                                setUncompressedFiles([...newFiles]);
+                                navigate('/success', { state: { newFiles } });
+                            });
+                        });
+                    };
+                    reader.readAsArrayBuffer(file);
+                }
+            });
+            console.log('Accepted files:', newFiles);
         }
     };
 

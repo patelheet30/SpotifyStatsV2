@@ -1,0 +1,80 @@
+.Success {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.main-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    width: 27%;
+    height: 100%;
+}
+
+.section {
+    border: 1px solid #121212;
+    background-color: #121212;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#left-section-1 {
+    height: 27%;
+    margin: 10px 10px 0 10px;
+    border-radius: 12px;
+}
+
+#left-section-2 {
+    height: 73%;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.right-container {
+    width: 73%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-section {
+    height: 100%;
+    margin: 10px 10px 10px 0;
+    border-radius: 12px;
+}
+
+h3 {
+    margin: 0;
+    font-family: CircularSpotifyBold, Circular, sans-serif;
+    color: #ffffff;
+    font-size: 1.6em;
+}
+
+.left-section-1-container-title {
+    padding-left: 10px;
+}
+
+.left-section-1-container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
